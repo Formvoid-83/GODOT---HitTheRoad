@@ -1,3 +1,45 @@
-[gd_scene format=3 uid="uid://c0nqouqk2knuc"]
+[gd_scene load_steps=10 format=3 uid="uid://c0nqouqk2knuc"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" uid="uid://ubqo0rvvnuwn" path="res://Assets/Scripts/scroll.gd" id="1_07l1v"]
+[ext_resource type="Shader" uid="uid://dtv54fx6yjocl" path="res://Assets/Shaders/Sky.gdshader" id="1_fvqhg"]
+[ext_resource type="Texture2D" uid="uid://bvedb1bohrjd7" path="res://Assets/Images/sky.png" id="1_gobul"]
+[ext_resource type="Texture2D" uid="uid://8orjauoymfkm" path="res://Assets/Images/street1.png" id="2_dwjai"]
+[ext_resource type="Shader" uid="uid://ihqahyoj48j2" path="res://Assets/Shaders/Street.gdshader" id="2_v47ap"]
+[ext_resource type="Texture2D" uid="uid://v1cqtoiqdhjw" path="res://Assets/Images/car.png" id="3_1g4cy"]
+[ext_resource type="Texture2D" uid="uid://phcgcpyurx8m" path="res://Assets/Images/steering_wheel.png" id="4_v47ap"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_07l1v"]
+shader = ExtResource("1_fvqhg")
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/h_offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1g4cy"]
+shader = ExtResource("2_v47ap")
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/v_offset = 0.0
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_07l1v")
+
+[node name="Sky" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_07l1v")
+position = Vector2(750, 500)
+texture = ExtResource("1_gobul")
+
+[node name="Street" type="Sprite2D" parent="."]
+z_index = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_1g4cy")
+position = Vector2(750, 500)
+texture = ExtResource("2_dwjai")
+
+[node name="Car" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(750, 500)
+texture = ExtResource("3_1g4cy")
+
+[node name="Steering_Wheel" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(874, 717)
+texture = ExtResource("4_v47ap")

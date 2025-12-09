@@ -11,12 +11,22 @@ config_version=5
 [application]
 
 config/name="HitTheRoad"
+run/main_scene="uid://c0nqouqk2knuc"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1500
+window/size/viewport_height=1000
 
 [dotnet]
 
 project/assembly_name="HitTheRoad"
+
+[importer_defaults]
+
+image={}
 
 [rendering]
 
